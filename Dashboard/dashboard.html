@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Dashboard - EduSetu</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1>EduSetu</h1>
+      </div>
+      <div class="header-right">
+        <div class="controls-group">
+          <select class="language-selector" id="languageSelector">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="bn">বাংলা (Bengali)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+            <option value="te">తెలుగు (Telugu)</option>
+          </select>
+          <button class="audio-toggle" id="audioToggle">
+            <i class="bi bi-volume-up-fill"></i>
+            <span id="audioText">Text to Speech: OFF</span>
+          </button>
+        </div>
+        <div class="user-info">
+          <div class="user-details">
+            <h3>Babygirl</h3>
+            <p>Student</p>
+          </div>
+          <div class="user-avatar">B</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dashboard -->
+  <div class="dashboard-container">
+    <!-- Welcome Section -->
+    <div class="welcome-section" data-speak>
+      <h2>Welcome back, babygirl!</h2>
+      <p>Ready to continue your learning journey? You're making great progress!</p>
+    </div>
+
+    <!-- Two Column Layout -->
+    <div class="two-column-layout">
+      <!-- Last Activity Section -->
+      <div class="last-activity">
+        <h3><i class="bi bi-clock-history"></i> Recent Activity</h3>
+        
+        <div class="activity-item" onclick="openCourse('algebra')" data-speak>
+          <div class="activity-icon">
+            <i class="bi bi-calculator"></i>
+          </div>
+          <div class="activity-details">
+            <h4>Completed: Quadratic Equations</h4>
+            <p>Mathematics - Algebra • 2 hours ago</p>
+          </div>
+        </div>
+
+        <div class="activity-item" onclick="openCourse('physics')" data-speak>
+          <div class="activity-icon">
+            <i class="bi bi-lightbulb"></i>
+          </div>
+          <div class="activity-details">
+            <h4>Started: Newton's Laws of Motion</h4>
+            <p>Science - Physics • Yesterday at 4:30 PM</p>
+          </div>
+        </div>
+
+        <div class="activity-item" onclick="openCourse('economics')" data-speak>
+          <div class="activity-icon">
+            <i class="bi bi-graph-up"></i>
+          </div>
+          <div class="activity-details">
+            <h4>Quiz Score: 85%</h4>
+            <p>Economics - Production and Consumption • 2 days ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Score Streak Section -->
+      <div class="score-streak">
+        <h3><i class="bi bi-fire"></i> Learning Streak</h3>
+        <div class="streak-info" data-speak>
+          <div class="streak-number">12</div>
+          <div class="streak-text">
+            <strong>Days in a row!</strong><br>
+            Keep it up!
+          </div>
+        </div>
+        <div class="calendar-grid" id="calendar"></div>
+      </div>
+    </div>
+
+    <!-- Courses Section -->
+    <div class="courses-section">
+      <h3>Your Courses</h3>
+      <div class="courses-grid">
+        <!-- Mathematics Course -->
+        <div class="course-card" onclick="openCourse('algebra')">
+          <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500&h=300&fit=crop" alt="Mathematics" class="course-image">
+          <div class="course-content" data-speak>
+            <span class="course-category">Mathematics</span>
+            <h4>Algebra</h4>
+            <div class="course-progress">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span>65%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 65%"></div>
+              </div>
+            </div>
+            <button class="continue-btn">Continue Learning</button>
+          </div>
+        </div>
+
+        <!-- Physics Course -->
+        <div class="course-card" onclick="openCourse('physics')">
+          <img src="https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=500&h=300&fit=crop" alt="Physics" class="course-image">
+          <div class="course-content" data-speak>
+            <span class="course-category">Science</span>
+            <h4>Physics</h4>
+            <div class="course-progress">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span>42%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 42%"></div>
+              </div>
+            </div>
+            <button class="continue-btn">Continue Learning</button>
+          </div>
+        </div>
+
+        <!-- Economics Course -->
+        <div class="course-card" onclick="openCourse('economics')">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop" alt="Economics" class="course-image">
+          <div class="course-content" data-speak>
+            <span class="course-category">Economics</span>
+            <h4>Production and Consumption</h4>
+            <div class="course-progress">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span>78%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 78%"></div>
+              </div>
+            </div>
+            <button class="continue-btn">Continue Learning</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course Modal -->
+  <div class="modal" id="courseModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle">Course Title</h3>
+      <p id="modalDescription">Course description goes here</p>
+      <div class="lesson-list" id="lessonList"></div>
+    </div>
+  </div>
+
+  <script>
+    // Text to Speech functionality
+    let audioEnabled = false;
+    const audioToggle = document.getElementById('audioToggle');
+    const audioText = document.getElementById('audioText');
+
+    audioToggle.addEventListener('click', () => {
+      audioEnabled = !audioEnabled;
+      audioToggle.classList.toggle('active');
+      audioText.textContent = audioEnabled ? 'Text to Speech: ON' : 'Text to Speech: OFF';
+      
+      if (audioEnabled) {
+        speak('Text to speech enabled');
+      } else {
+        window.speechSynthesis.cancel();
+      }
+    });
+
+    function speak(text) {
+      if (audioEnabled && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    // Add hover speech to elements
+    document.querySelectorAll('[data-speak]').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        if (audioEnabled) {
+          speak(el.textContent.trim());
+        }
+      });
+    });
+
+    // Language selector
+    const languageSelector = document.getElementById('languageSelector');
+    languageSelector.addEventListener('change', (e) => {
+      const lang = e.target.value;
+      speak(`Language changed to ${e.target.options[e.target.selectedIndex].text}`);
+      console.log('Language changed to:', lang);
+    });
+
+    // Generate compact calendar
+    const calendar = document.getElementById('calendar');
+    const today = new Date();
+    const activeDays = new Set([0, 1, 2, 4, 5, 6, 8, 9, 11, 13, 14, 15]);
+    
+    for (let i = 20; i >= 0; i--) {
+      const dayDiv = document.createElement('div');
+      dayDiv.className = 'calendar-day';
+      
+      if (activeDays.has(i)) {
+        dayDiv.classList.add('active');
+      }
+      
+      if (i === 0) {
+        dayDiv.classList.add('today');
+      }
+      
+      const date = new Date(today);
+      date.setDate(date.getDate() - i);
+      dayDiv.textContent = date.getDate();
+      dayDiv.title = date.toDateString();
+      
+      calendar.appendChild(dayDiv);
+    }
+
+    // Course data
+    const courses = {
+      algebra: {
+        title: 'Algebra',
+        description: 'Master the fundamentals of Algebra, from equations and expressions to problem-solving techniques.',
+        lessons: [
+          { name: 'Introduction to Variables', duration: '15 min', completed: true },
+          { name: 'Linear Equations', duration: '20 min', completed: true },
+          { name: 'Quadratic Equations', duration: '25 min', completed: true },
+          { name: 'Functions and Graphs', duration: '30 min', completed: false },
+          { name: 'Polynomial Operations', duration: '20 min', completed: false }
+        ]
+      },
+      physics: {
+        title: 'Physics',
+        description: 'Understand the core concepts of Physics through interactive lessons and real-life examples.',
+        lessons: [
+          { name: 'Introduction to Motion', duration: '15 min', completed: true },
+          { name: 'Newton\'s Laws of Motion', duration: '25 min', completed: false },
+          { name: 'Work and Energy', duration: '20 min', completed: false },
+          { name: 'Waves and Sound', duration: '30 min', completed: false },
+          { name: 'Light and Optics', duration: '25 min', completed: false }
+        ]
+      },
+      economics: {
+        title: 'Production and Consumption',
+        description: 'Learn the fundamentals of Economics, including supply and demand, markets, and decision-making.',
+        lessons: [
+          { name: 'Introduction to Economics', duration: '15 min', completed: true },
+          { name: 'Supply and Demand', duration: '20 min', completed: true },
+          { name: 'Market Equilibrium', duration: '25 min', completed: true },
+          { name: 'Production Theory', duration: '30 min', completed: true },
+          { name: 'Consumer Behavior', duration: '20 min', completed: false }
+        ]
+      }
+    };
+
+    // Open course modal
+    function openCourse(courseId) {
+      const course = courses[courseId];
+      const modal = document.getElementById('courseModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
+      const lessonList = document.getElementById('lessonList');
+
+      modalTitle.textContent = course.title;
+      modalDescription.textContent = course.description;
+      
+      lessonList.innerHTML = '';
+      course.lessons.forEach((lesson, index) => {
+        const lessonItem = document.createElement('div');
+        lessonItem.className = 'lesson-item';
+        lessonItem.innerHTML = `
+          <div>
+            <strong>${index + 1}. ${lesson.name}</strong>
+            <small style="display: block; color: #888;">${lesson.duration}</small>
+          </div>
+          <i class="bi ${lesson.completed ? 'bi-check-circle-fill' : 'bi-circle'}" style="font-size: 20px; color: ${lesson.completed ? '#28a745' : '#ccc'};"></i>
+        `;
+        lessonItem.addEventListener('click', () => {
+          speak(`Starting lesson: ${lesson.name}`);
+          alert(`Starting lesson: ${lesson.name}`);
+        });
+        lessonList.appendChild(lessonItem);
+      });
+
+      modal.classList.add('active');
+      speak(`Opened ${course.title} course with ${course.lessons.length} lessons`);
+    }
+
+    // Close modal
+    function closeModal() {
+      document.getElementById('courseModal').classList.remove('active');
+    }
+
+    // Close modal on outside click
+    document.getElementById('courseModal').addEventListener('click', (e) => {
+      if (e.target.id === 'courseModal') {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>

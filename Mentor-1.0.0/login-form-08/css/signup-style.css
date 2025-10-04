@@ -1,0 +1,180 @@
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: #f8fafb;
+}
+
+p.mb-4 {
+  color: #c2185b;   /* theme pink */
+  font-weight: 500; /* stronger visibility */
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
+
+a {
+  transition: .3s all ease;
+  color: #c2185b;
+}
+a:hover {
+  color: #ad1457;
+  text-decoration: underline;
+}
+
+.content {
+  padding: 7rem 0;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+@media (max-width: 991.98px) {
+  .content .bg {
+    height: 500px;
+  }
+}
+
+.content .contents, .content .bg {
+  width: 50%;
+}
+@media (max-width: 1199.98px) {
+  .content .contents, .content .bg {
+    width: 100%;
+  }
+}
+
+.content .contents .form-group {
+  position: relative;
+}
+
+.content .contents .form-group label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: .3s all ease;
+  font-size: 12px;
+  color: #b3b3b3;   /* dark pink */
+  font-weight: 500;
+}
+
+.content .contents .form-group input {
+  background: transparent;
+  border-bottom: 1px solid #ccc;
+  /*border-bottom: 2px solid #c2185b; /* pink underline */
+  /*color: #333; /* keep typed text dark */
+}
+
+.content .contents .form-group.first {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.content .contents .form-group.last {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.content .contents .form-group.field--not-empty label {
+  margin-top: -25px;
+}
+
+.content .contents .form-control {
+  border: none;
+  padding: 0;
+  font-size: 20px;
+  border-radius: 0;
+  color: #333;
+}
+.content .contents .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.content .btn {
+  height: 54px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-weight: 500;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Forgot password & small links */
+.content .forgot-pass {
+  position: relative;
+  top: 2px;
+  font-size: 14px;
+}
+
+/* Checkbox Styles */
+.control {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.control .caption {
+  position: relative;
+  top: .2rem;
+  color: #888;
+}
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.control__indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #e6e6e6;
+  border-radius: 4px;
+  border: 2px solid #c2185b;
+}
+.control input:checked ~ .control__indicator {
+  background: #c2185b;
+  border-color: #c2185b;
+}
+.control__indicator:after {
+  font-family: 'icomoon';
+  content: '\e5ca';
+  position: absolute;
+  display: none;
+  font-size: 16px;
+}
+.control input:checked ~ .control__indicator:after {
+  display: block;
+  color: #fff;
+}
+.control--checkbox .control__indicator:after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Buttons */
+.btn-primary, input[type="submit"].btn {
+  background-color: #c2185b !important;
+  border-color: #c2185b !important;
+}
+.btn-primary:hover, input[type="submit"].btn:hover {
+  background-color: #ad1457 !important;
+  border-color: #ad1457 !important;
+}
+
+
+h3 { color: #ad1457; }     /* for "Create an Account on" */
+h3 strong { color: #c2185b; } /* for EduSetu */
+
+/* Floating label turns pink on focus or when input is filled */
+.content .contents .form-group.focus label,
+.content .contents .form-group.field--not-empty label {
+  color: #c2185b; /* theme pink */
+  font-weight: 600; /* make it stronger */
+}
